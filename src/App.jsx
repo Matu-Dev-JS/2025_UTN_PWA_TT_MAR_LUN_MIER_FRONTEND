@@ -6,6 +6,8 @@ import ResetPasswordRequestScreen from './Screens/ResetPasswordRequestScreen/Res
 import AuthMiddleware from './Middlewares/AuthMiddleware'
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
 import NewWorkspaceScreen from './Screens/NewWorkspaceScreen/NewWorkspaceScreen'
+import WorkspaceScreen from './Screens/WorkspaceScreen/WorkspaceScreen'
+
 
 
 const App = () => {
@@ -24,7 +26,9 @@ const App = () => {
           element={<HomeScreen/>}
         />
          <Route path="/workspace/new" element={<NewWorkspaceScreen />} />
+         <Route path="/workspace/:workspace_id" element={<WorkspaceScreen />} />
       </Route>
+
     </Routes>
   )
 }

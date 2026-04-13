@@ -32,3 +32,18 @@ export async function createWorkspace(params) {
   }
   return response.json();
 }
+
+export async function getWorkspaceById(workspace_id) {
+    const token = localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
+    const response = await fetch(`${ENVIRONMENT.API_URL}/api/workspace/${workspace_id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to fetch workspace");
+    }
+    return response.json();
+  }
